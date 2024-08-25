@@ -1,11 +1,14 @@
 # Node modules
 node_modules/
+**/node_modules/
 
 # Environment variables
 .env
+*.env
 
 # Log files
 *.log
+
 
 # Operating system files
 .DS_Store
@@ -25,5 +28,3 @@ build/
 *.tmp
 *.temp
 
-# Vercel
-.vercel
