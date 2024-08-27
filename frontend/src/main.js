@@ -17,7 +17,6 @@ import CheckoutScreen from './screen/CheckoutScreen.js';
 import UpdateProduct from './screen/UpdateProductScreen.js';
 import UpdateOrder from './screen/UpdateOrderScreen.js';
 import PaticularProductPage from './screen/PaticularProductPage.js';
-
 const routes = {
   "/": HomeScreen,
   "/login": loginScreen,
