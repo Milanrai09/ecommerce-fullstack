@@ -12,7 +12,15 @@ require('./config/database');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const cors = require('cors')
 
+    const corsConfig = {
+    origin: 'https://ecommerce-fullstack-frontend-theta.vercel.app/',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+}
+app.use(cors(corsConfig))
+app.options("", cors(corsConfig))
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
