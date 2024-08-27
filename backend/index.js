@@ -1,26 +1,32 @@
-require("dotenv").config();
+require("dotenv").config(); // Load environment variables
 const express = require('express');
 const app = express();
-const port = process.env.PORT
-// const orderRouter = require('./routes/orderRoute');
+const port = process.env.PORT || 3000;   
+ // Use default port if not set
+
+// Route imports (assuming correct file paths)
+const orderRouter = require('./routes/orderRoute');
 const userRouter = require('./routes/userRoute');
 const productRouter = require('./routes/productRoute');
 const adminRouter = require('./routes/adminRoute');
-const orderRouter = require('./routes/orderRoute');
-const cartRoute  = require('./routes/cartRoute')
-require('./config/database');
-const bodyParser = require('body-parser');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const cors = require('cors')
+const cartRoute = require('./routes/cartRoute'); // Consistent naming
 
-    const corsConfig = {
-    origin: 'https://ecommerce-fullstack-frontend-theta.vercel.app/',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}
-app.use(cors(corsConfig))
-app.options("", cors(corsConfig))
+// Database connection (assuming in `config/database.js`)
+require('./config/database');
+
+// Middleware setup
+app.use(cookieParser());
+app.use(bodyParser.json()); // Use only for JSON parsing
+app.use(bodyParser.urlencoded({ extended: true })); // Only if required for form data
+
+// CORS configuration
+const corsConfig = {
+  origin: 'https://ecommerce-fullstack-frontend-theta.vercel.app/',
+  credentials: true, // Allow cookies for authenticated requests
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+};
+app.use(cors(corsConfig)); // Apply CORS globally
+
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
