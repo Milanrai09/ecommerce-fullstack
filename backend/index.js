@@ -3,41 +3,25 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT
 const cors = require('cors');
-// const userRouter = require('./routes/userRoute');
-// const productRouter = require('./routes/productRoute');
-// const adminRouter = require('./routes/adminRoute');
-// const orderRouter = require('./routes/orderRoute');
-// const cartRoute  = require('./routes/cartRoute')
+const userRouter = require('./routes/userRoute');
+const productRouter = require('./routes/productRoute');
+const adminRouter = require('./routes/adminRoute');
+const orderRouter = require('./routes/orderRoute');
+const cartRoute  = require('./routes/cartRoute')
 require('./config/database');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
 
-// CORS function for individual route handling
-const allowCors = fn => async (req, res) => {
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', 'https://ecommerce-fullstack-frontend-ng82us7y5-milanrai09s-projects.vercel.app/');
-  // Alternatively, allow any origin
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-  return await fn(req, res);
+const corsOptions = {
+  origin: 'https://ecommerce-fullstack-frontend-kwy8657oh-milanrai09s-projects.vercel.app',
+  methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204
 };
 
-// Example usage with route handlers
-const userRouter = allowCors(require('./routes/userRoute'));
-const productRouter = allowCors(require('./routes/productRoute'));
-const adminRouter = allowCors(require('./routes/adminRoute'));
-const orderRouter = allowCors(require('./routes/orderRoute'));
-const cartRoute = allowCors(require('./routes/cartRoute'));
+app.use(cors(corsOptions));
 
 
 
