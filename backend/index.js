@@ -15,7 +15,7 @@ const cookieParser = require('cookie-parser');
 
 
 const corsOptions = {
-  origin: 'https://ecommerce-fullstack-frontend-gntn8ylxq-milanrai09s-projects.vercel.app/',
+  origin: '*',
   methods: 'GET, POST, OPTIONS, PUT, DELETE',
   credentials: true,
   allowedHeaders: 'Origin, Content-Type, Accept',
