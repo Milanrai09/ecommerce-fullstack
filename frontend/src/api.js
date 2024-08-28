@@ -1,5 +1,5 @@
 
-const API_URL = `https://ecommerce-fullstack-backend-hk2ww38ps-milanrai09s-projects.vercel.app/`
+const API_URL = `https://ecommerce-fullstack-backend-ly48qo3pa-milanrai09s-projects.vercel.app`
 const apiUrl = API_URL;
 export async function getUsersApi() {
   try {
