@@ -113,7 +113,7 @@ export const createProduct = async (productData) => {
 
     const response = await fetch(`${apiUrl}/api/product/addProduct`, {
       method: 'POST',
-      body: formData
+      body: JSON.stringify(formData),
     });
 
     if (!response.ok) {
