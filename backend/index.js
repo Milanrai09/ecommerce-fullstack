@@ -15,15 +15,14 @@ const cookieParser = require('cookie-parser');
 
 
 const corsOptions = {
-  origin: 'https://ecommerce-fullstack-frontend-kwy8657oh-milanrai09s-projects.vercel.app',
-  methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+  origin: 'https://ecommerce-fullstack-frontend-gntn8ylxq-milanrai09s-projects.vercel.app/',
+  methods: 'GET, POST, OPTIONS, PUT, DELETE',
   credentials: true,
+  allowedHeaders: 'Origin, Content-Type, Accept',
   optionsSuccessStatus: 204
 };
 
 app.use(cors(corsOptions));
-
-
 
 
 app.use(cookieParser());
