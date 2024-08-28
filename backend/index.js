@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT
+const cors = require('cors');
 const userRouter = require('./routes/userRoute');
 const productRouter = require('./routes/productRoute');
 const adminRouter = require('./routes/adminRoute');
@@ -25,7 +26,11 @@ app.use('/api/admin',adminRouter)
 app.use('/api/order',orderRouter)
 app.use('/api/cart',cartRoute)
 
-
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use(express.static(path.join(__dirname, '../frontend/src')));
 
