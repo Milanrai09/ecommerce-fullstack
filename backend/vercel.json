@@ -15,10 +15,6 @@
           "value": "true"
         },
         {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://ecommerce-fullstack-frontend-kwy8657oh-milanrai09s-projects.vercel.app"
-        },
-        {
           "key": "Access-Control-Allow-Methods",
           "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
         },
