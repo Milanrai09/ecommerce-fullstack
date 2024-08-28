@@ -26,11 +26,15 @@ app.use('/api/admin',adminRouter)
 app.use('/api/order',orderRouter)
 app.use('/api/cart',cartRoute)
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+const corsOptions = {
+  // Replace with your domain
+  origin: 'https://ecommerce-fullstack-frontend-fjrlhsczq-milanrai09s-projects.vercel.app',
+  methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, '../frontend/src')));
 
