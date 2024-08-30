@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, '../frontend/src')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/',(req, res) => {
-    res.send('hello ecommerce');
+    res.send('hello ecommerce testing and hope this works ');
 });
 
 app.get('/testing',(req,res) => {
