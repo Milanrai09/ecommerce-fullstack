@@ -14,15 +14,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 
+
 const corsOptions = {
-  origin: '*',
-  methods: 'GET, POST, OPTIONS, PUT, DELETE',
-  credentials: true,
-  allowedHeaders: 'Origin, Content-Type, Accept',
-  optionsSuccessStatus: 204
+    credentials: true,
+    origin: ['https://ecommerce-fullstack-frontend-theta.vercel.app'] 
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); 
 
 
 app.use(cookieParser());
