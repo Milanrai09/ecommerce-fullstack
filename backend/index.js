@@ -15,12 +15,6 @@ const cookieParser = require('cookie-parser');
 
 
 
-const corsOptions = {
-    credentials: true,
-    origin: ['https://ecommerce-fullstack-frontend-theta.vercel.app'] 
-};
-
-app.use(cors(corsOptions)); 
 
 
 app.use(cookieParser());
@@ -45,6 +39,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/',(req, res) => {
     res.send('hello ecommerce');
 });
+
+app.get('/testing',(req,res) => {
+    res.send('hello world')
+}
 
 app.listen(port, () => {
     console.log('Hello !! The server is live ...',port);
