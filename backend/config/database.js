@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 if (!process.env.MONGODB_URI) {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
 }
@@ -13,17 +14,17 @@ if (!cached) {
 
 async function dbConnect() {
   if (cached.conn) {
-    console.log("Using cached connection");
     return cached.conn;
   }
 
   if (!cached.promise) {
     const opts = {
-      bufferCommands: false,
+      bufferCommands: true, // changed to true
+      serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
+      family: 4, // Use IPv4, skip trying IPv6
     };
-    console.log("Creating new connection");
+
     cached.promise = mongoose.connect(uri, opts).then((mongoose) => {
-      console.log("MongoDB connected successfully");
       return mongoose;
     });
   }
@@ -32,7 +33,6 @@ async function dbConnect() {
     cached.conn = await cached.promise;
   } catch (e) {
     cached.promise = null;
-    console.error("MongoDB connection error:", e);
     throw e;
   }
 
