@@ -13,8 +13,14 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
-app.use(cors());
+const corsOptions = {
+  origin: '*', // Replace with your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true, // Allow credentials (e.g., cookies, authorization headers)
+};
 
+app.use(cors(corsOptions));
 
 
 dbConnect()
