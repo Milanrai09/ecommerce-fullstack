@@ -13,6 +13,9 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
+
+
+dbConnect()
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
