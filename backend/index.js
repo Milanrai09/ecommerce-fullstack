@@ -14,7 +14,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 
-dbConnects.dbConnect()
+
 
 
 app.use(cookieParser());
