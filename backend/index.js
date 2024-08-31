@@ -24,7 +24,14 @@ app.get('/example', async (req, res) => {
     res.json({ success: true, data: "Your data here" });
   } catch (error) {
     console.error('Database operation error:', error);
-    res.status(500).json({ success: false, error: 'Internal server error' });
+    if (error.name === 'MongooseServerSelectionError') {
+      console.error('Failed to select a MongoDB server. Check your connection string and network settings.');
+    }
+    res.status(500).json({ 
+      success: false, 
+      error: 'Internal server error', 
+      details: error.message 
+    });
   }
 });
 
