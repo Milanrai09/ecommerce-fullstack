@@ -94,13 +94,15 @@ async function getAllOrders(req,res){
 
 
 async function getProduct(req,res){
-    try{
-        const productResponse = await Product.find({});
-        res.json(productResponse)
-    }catch(error){
-        res.status(500).json({ message: error.message });
-
-    }
+    try {
+    console.log("Fetching articles...");
+    const productResponse = await Product.find({});
+    console.log("Articles retrieved:", productResponse);
+    res.status(200).json(productResponse);
+  } catch (error) {
+    console.error("Error retrieving articles:", error);
+    res.status(500).json({ error: 'Failed to retrieve articles' });
+  }
 }
 
 
