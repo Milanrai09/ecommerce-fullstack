@@ -16,6 +16,19 @@ const cookieParser = require('cookie-parser');
 
 
 dbConnect()
+
+app.get('/example', async (req, res) => {
+  try {
+    await dbConnect();
+    // Your database query here
+    res.json({ success: true, data: "Your data here" });
+  } catch (error) {
+    console.error('Database operation error:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
