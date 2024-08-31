@@ -8,14 +8,14 @@ const productRouter = require('./routes/productRoute');
 const adminRouter = require('./routes/adminRoute');
 const orderRouter = require('./routes/orderRoute');
 const cartRoute = require('./routes/cartRoute');
-const dbConnect = require('./config/database');
+const dbConnects = require('./config/database');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
 
 
-dbConnect()
+dbConnects.dbConnect()
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
