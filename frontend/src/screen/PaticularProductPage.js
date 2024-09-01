@@ -57,7 +57,7 @@ const PaticularProductPage = {
             return `
                 <div class="product-detail-container">
                     <div class="product-image-container">
-                        <img src="/${product.image}" alt="${product.name}" class="product-detail-image">
+                        <img src="${product.image}" alt="${product.name}" class="product-detail-image">
                     </div>
                     <div class="product-info">
                         <h1 class="product-name">${product.name}</h1>
