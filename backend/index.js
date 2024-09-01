@@ -33,7 +33,7 @@ app.use('/api/cart', cartRoute);
 app.use(express.static(path.join(__dirname, '../frontend/src')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.get('/', (req, res) => {
+app.get('/', async(req, res) => {
  try {
     await dbConnect();
     // Your database query here
