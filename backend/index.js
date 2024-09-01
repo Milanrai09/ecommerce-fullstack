@@ -13,7 +13,16 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://ecommerce-fullstack-frontend-theta.vercel.app', // Replace with your frontend domain
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Allow cookies to be sent with requests
+
+};
+
+app.use(cors(corsOptions));
 
 dbConnect()
 
