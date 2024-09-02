@@ -1,11 +1,11 @@
+
 {
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.+\\.js)", "dest": "/$1" },
-    { "src": "/fashion/:id", "dest": "/" },
-    { "src": "/smartPhone/:id", "dest": "/" },
-    { "src": "/laptop/:id", "dest": "/" },
-    { "src": "/headPhones/:id", "dest": "/" },
-    { "src": "/(.*)", "dest": "/" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" },
+    { "source": "/fashion/:id", "destination": "/" },
+    { "source": "/smartPhone/:id", "destination": "/" },
+    { "source": "/laptop/:id", "destination": "/" },
+    { "source": "/headPhones/:id", "destination": "/" }
   ]
 }
+
