@@ -1,5 +1,9 @@
 {
-    "rewrites": [
-        {"source": "/(.*)", "destination": "/"}
-    ]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" },
+    { "source": "/fashion/:id", "destination": "/" },
+    { "source": "/smartPhone/:id", "destination": "/" },
+    { "source": "/laptop/:id", "destination": "/" },
+    { "source": "/headPhones/:id", "destination": "/" }
+  ]
 }
