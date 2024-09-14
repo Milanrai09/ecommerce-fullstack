@@ -53,11 +53,7 @@ router.post('/addProduct', upload.single('image'), async (req, res, next) => {
 });
 
 // Other routes
-router.get('/', displayProduct);
-router.get('/products', displayProduct);
-router.delete('/carts/:id', removeCart);
 router.get('/search', searchProductSecond);
-router.get('/category', getCateProduct);
 router.get('/idProduct/:id', getProductById);
 
 module.exports = router;
